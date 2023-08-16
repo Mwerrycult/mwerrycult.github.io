@@ -1,23 +1,162 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" href="styles.css">
-</head>
+    <head>
+        <link rel="stylesheet" href="money-style.css">
+    </head>
 <body>
 
-<div class="nav">
-  <ul>
-    <li>Главная</li>
-    <li>Раздел 1</li>
-    <li>Раздел 2</li>
-    <li>Раздел 3</li>
-  </ul>
-</div>
+<h1>Pay</h1>
+<h2>Current job</h2>
+<h4>Актуальная инфа по месяцам: Май-Июнь, Июнь-Июль, Июль-Август</h4>
 
-<div class="section">
-	<h1>This is a heading</h1>
-	<p>This is a paragraph.</p>
-</div>
+<span>
+  <table>
+  <tr>
+    <p id="demo"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+  </tr>
+</table>
+</span>
+
+
+<script>
+var monthObject = {
+    usualDays_name : "Usual days",
+    usualDays_count : 8,
+    usualDays_hours : 8.5,
+    
+    friday_name : "Fridays",
+    friday_count : 1,
+    friday_hours : 6.5,
+    
+    saturday_name : "Saturdays",
+    saturday_count : 0,
+    saturday_hours : 8, 
+    
+    cleaning_name : "Cleaning days",
+    cleaning_count : 1,
+    cleaning_hours : 6,
+    
+    hourly_pay : 113,
+    month_name : "Май - Июнь"
+}
+
+
+var hours_1 = monthObject.usualDays_count * monthObject.usualDays_hours;
+var hours_2 = monthObject.friday_count * monthObject.friday_hours;
+var hours_3 = monthObject.saturday_count * monthObject.saturday_hours;
+var hours_4 = monthObject.cleaning_count * monthObject.cleaning_hours;
+
+var all_days = hours_1 + hours_2 + hours_3 + hours_4;
+var payment = all_days * monthObject["hourly_pay"];
+
+
+
+  
+function first_month() {
+  
+  for (var member in monthObject)
+  {
+      if (monthObject.hasOwnProperty(member))
+      {
+          document.getElementById("demo").innerHTML = 
+          monthObject["usualDays_name"] + ": " + 
+          monthObject["usualDays_count"] + ", with " +
+          monthObject["usualDays_hours"] + " hours, <br>" +
+          monthObject["friday_name"] + ": " +
+          monthObject["friday_count"] + ", with " +
+          monthObject["friday_hours"] + " hours, <br>" +
+          monthObject["saturday_name"] + ": " +
+          monthObject["saturday_count"] + ", with " +
+          monthObject["saturday_hours"] + " hours, <br>" +
+          monthObject["cleaning_name"] + ": " +
+          monthObject["cleaning_count"] + ", with " +
+          monthObject["cleaning_hours"] + " hours, <br>All days: " +
+
+          all_days + " hours, <br>Hourly pay: " +
+          monthObject["hourly_pay"] + " ₽" + "<br><br>You have a month: " +
+          payment + " ₽" + "<br>Hourly pay: " +
+          monthObject["hourly_pay"] + " ₽" + "<br><b>Month: " +
+          monthObject["month_name"]; 
+      }
+  }
+}
+  
+function snd_month() {
+  
+  monthObject["usualDays_count"] = 10;
+  monthObject["friday_count"] = 4;
+  monthObject["saturday_count"] = 1;
+  monthObject["month_name"] = "Июнь - Июль";
+  
+  for (var member in monthObject)
+  {
+      if (monthObject.hasOwnProperty(member))
+      {
+          document.getElementById("demo2").innerHTML = 
+          monthObject["usualDays_name"] + ": " + 
+          monthObject["usualDays_count"] + ", with " +
+          monthObject["usualDays_hours"] + " hours, <br>" +
+          monthObject["friday_name"] + ": " +
+          monthObject["friday_count"] + ", with " +
+          monthObject["friday_hours"] + " hours, <br>" +
+          monthObject["saturday_name"] + ": " +
+          monthObject["saturday_count"] + ", with " +
+          monthObject["saturday_hours"] + " hours, <br>" +
+          monthObject["cleaning_name"] + ": " +
+          monthObject["cleaning_count"] + ", with " +
+          monthObject["cleaning_hours"] + " hours, <br>All days: " +
+
+          all_days + " hours, <br>Hourly pay: " +
+          monthObject["hourly_pay"] + " ₽" + "<br><br>You have a month: " +
+          payment + " ₽" + "<br>Hourly pay: " +
+          monthObject["hourly_pay"] + " ₽" + "<br><b>Month: " +
+          monthObject["month_name"]; 
+      }
+  }
+}
+  
+function trd_month() {
+  
+  monthObject["usualDays_count"] = 10;
+  monthObject["friday_count"] = 10;
+  monthObject["saturday_count"] = 1;
+  monthObject["month_name"] = "Июль - Август";
+  
+  for (var member in monthObject)
+  {
+      if (monthObject.hasOwnProperty(member))
+      {
+          document.getElementById("demo3").innerHTML = 
+          monthObject["usualDays_name"] + ": " + 
+          monthObject["usualDays_count"] + ", with " +
+          monthObject["usualDays_hours"] + " hours, <br>" +
+          monthObject["friday_name"] + ": " +
+          monthObject["friday_count"] + ", with " +
+          monthObject["friday_hours"] + " hours, <br>" +
+          monthObject["saturday_name"] + ": " +
+          monthObject["saturday_count"] + ", with " +
+          monthObject["saturday_hours"] + " hours, <br>" +
+          monthObject["cleaning_name"] + ": " +
+          monthObject["cleaning_count"] + ", with " +
+          monthObject["cleaning_hours"] + " hours, <br>All days: " +
+
+          all_days + " hours, <br>Hourly pay: " +
+          monthObject["hourly_pay"] + " ₽" + "<br><br>You have a month: " +
+          payment + " ₽" + "<br>Hourly pay: " +
+          monthObject["hourly_pay"] + " ₽" + "<br><b>Month: " +
+          monthObject["month_name"]; 
+      }
+  }
+}
+  
+first_month();
+snd_month();
+trd_month();
+
+</script>
 
 </body>
 </html>
+
