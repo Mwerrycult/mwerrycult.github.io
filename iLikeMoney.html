@@ -21,6 +21,46 @@
 
 
 <script>
+//источник: https://stackoverflow.com/questions/50548004/put-a-struct-in-a-struct
+var month = {
+    hours: {
+        day_schedule: {
+            var monday_h : 8.5,
+            var second_h : 8.5,
+            var third_h : 8.5,
+            var forth_h : 8.5,
+            var fifth_h : 6.5,
+            var sixth_h : 8,
+            var seventh_h : null,
+            var cleaning_day : 6.5
+        },
+        month_schedule: {
+            var first_d : 4,
+            var second_d : 4,
+            var third_d : 4,
+            var forth_d : 4,
+            var fifth_d : 5,
+            var sixth_d : 1,
+            var seventh_d : null,
+            var cleaning_day : 1
+        }
+        day_name: {
+            var first_n : "Monday",
+            var second_n : "Thuesday",
+            var third_n : "Wednesday",
+            var forth_n : "Thursday",
+            var fifth_n : "Friday",
+            var sixth_n : "Saturday",
+            var seventh_n : "Sunday",
+            var cleaning_day : "monthly cleaning"
+        }
+    },
+    pay: {
+        var hourly : 110,
+        var occasionally : 300
+    }
+}
+
 var monthObject = {
     usualDays_name : "Usual days",
     usualDays_count : 8,
